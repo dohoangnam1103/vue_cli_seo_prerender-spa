@@ -16,7 +16,7 @@ export default {
   },
 
   mounted() {
-    // document.dispatchEvent(new Event("x-app-rendered"))
+    document.dispatchEvent(new Event("x-app-rendered"))
   }
 }
 </script>
