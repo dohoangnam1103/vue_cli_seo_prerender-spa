@@ -1,12 +1,18 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <div>{{articles}}</div>
+    <div>
+      <ul>
+        <li v-for="(article, index) in articles" :key="index">
+          {{ article.title }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-import { callAPI } from '@/util/helper.js'
+import { callAPI } from "@/util/helper.js";
 export default {
   metaInfo: {
     title: "About page",
@@ -39,24 +45,24 @@ export default {
 
   data() {
     return {
-      articles: []
-    }
+      articles: [],
+    };
   },
 
   async created() {
     const [data, err] = await callAPI({
-      method: 'get',
-      url: 'https://conduit.productionready.io/api/articles?limit=10&offset=0'
-    })
+      method: "get",
+      url: "https://conduit.productionready.io/api/articles?limit=10&offset=0",
+    });
 
     if (err) {
-      console.log(err)
+      console.log(err);
     }
 
-    this.articles = data.articles
+    this.articles = data.articles;
 
     //trigger render when build
-    document.dispatchEvent(new Event("x-app-rendered"))
-  }
+    document.dispatchEvent(new Event("x-app-rendered"));
+  },
 };
 </script>
