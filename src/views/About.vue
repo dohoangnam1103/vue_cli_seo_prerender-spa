@@ -1,0 +1,51 @@
+<template>
+  <div class="about">
+    <h1>This is an about page</h1>
+    <div>{{articles}}</div>
+  </div>
+</template>
+
+<script>
+export default {
+  metaInfo: {
+    title: "About page",
+    titleTemplate: "%s - Yay!",
+    htmlAttrs: {
+      lang: "en",
+      amp: true,
+    },
+    meta: [
+      { name: "description", content: "This is an about page" },
+      { name: "keywords", content: "about, page" },
+      {
+        property: "og:url",
+        content:
+          "http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html",
+      },
+      { property: "og:type", content: "article" },
+      { property: "og:title", content: "When Great Minds Don’t Think Alike" },
+      {
+        property: "og:description",
+        content: "How much does culture influence creative thinking?",
+      },
+      {
+        property: "og:image",
+        content:
+          "http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg",
+      },
+    ],
+  },
+
+  data() {
+    return {
+      articles: []
+    }
+  },
+
+  async created() {
+    const res = await fetch("https://conduit.productionready.io/api/articles?limit=10&offset=0")
+    const json = await res.json()
+    this.articles = json.articles
+  }
+};
+</script>
