@@ -4,9 +4,7 @@ module.exports = {
       registry: undefined,
       renderRoutes: [
         '/',
-        '/about',
-        '/home',
-        '/contact'
+        '/about'
       ],
       useRenderEvent: true,
       headless: true,

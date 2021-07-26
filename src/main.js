@@ -18,6 +18,7 @@ new Vue({
   mounted: () => {
     setTimeout(() => {
       document.dispatchEvent(new Event("x-app-rendered"))
-    }, 1000)
+      //force build after 10s
+    }, 10000)
   },
 }).$mount('#app')

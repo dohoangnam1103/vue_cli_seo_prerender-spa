@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { callAPI } from '@/util/helper.js'
 export default {
   metaInfo: {
     title: "About page",
@@ -43,9 +44,19 @@ export default {
   },
 
   async created() {
-    const res = await fetch("https://conduit.productionready.io/api/articles?limit=10&offset=0")
-    const json = await res.json()
-    this.articles = json.articles
+    const [data, err] = await callAPI({
+      method: 'get',
+      url: 'https://conduit.productionready.io/api/articles?limit=10&offset=0'
+    })
+
+    if (err) {
+      console.log(err)
+    }
+
+    this.articles = data.articles
+
+    //trigger render when build
+    document.dispatchEvent(new Event("x-app-rendered"))
   }
 };
 </script>

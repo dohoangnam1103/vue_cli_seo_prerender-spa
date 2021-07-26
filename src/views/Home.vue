@@ -13,6 +13,10 @@ export default {
   name: 'Home',
   components: {
     HelloWorld
+  },
+
+  mounted() {
+    // document.dispatchEvent(new Event("x-app-rendered"))
   }
 }
 </script>
