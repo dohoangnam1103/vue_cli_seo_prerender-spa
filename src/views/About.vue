@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <div>label from config store {{labelAboutPage}}</div>
+    <div>label from config store {{ labelAboutPage }}</div>
     <div>
       <ul>
         <li v-for="(article, index) in articles" :key="index">
@@ -14,7 +14,7 @@
 
 <script>
 import { callAPI } from "@/util/helper.js";
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
   metaInfo: {
     title: "About page",
@@ -68,7 +68,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters('config',['labelAboutPage']),
-  }
+    ...mapGetters("config", ["labelAboutPage"]),
+  },
 };
 </script>
