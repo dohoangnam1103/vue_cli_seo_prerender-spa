@@ -24,6 +24,10 @@ export default {
       amp: true,
     },
     meta: [
+      {
+        name: "google-site-verification",
+        content: "_D_gPgKHGHlLZOdrCkOb6L6hebqwOJQYq3ZWH2bRMDk",
+      },
       { name: "description", content: "This is an about page" },
       { name: "keywords", content: "about, page" },
       {
