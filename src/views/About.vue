@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>This is an about page test SEO crawl nnnnnnn</h1>
     <div>label from config store {{ labelAboutPage }}</div>
     <div>
       <ul>
